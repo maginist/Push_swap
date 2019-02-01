@@ -1,7 +1,7 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   main_c.c                                           :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
@@ -10,25 +10,7 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../includes/checker.h"
-
-void	free_all_list(t_stock **pile_a, t_stock **begin_i)
-{
-	t_stock *current;
-
-	if (*pile_a)
-	{
-		current = *pile_a;
-		while (current->next)
-			free(current);
-	}
-	if (*begin_i)
-	{
-		current = *begin_i;
-		while (current->next)
-			free(current);
-	}
-}
+#include "../includes/push_swap.h"
 
 int	checker(int ac, char **av)
 {
@@ -52,17 +34,12 @@ int	checker(int ac, char **av)
 		fct[begin_i->data - 1](&pile_a, &pile_b);
 		begin_i = begin_i->next;
 	}
-	if (!(list_sort(&pile_a, &pile_b)))
-	{
-		write(1, "KO\n", 3);
-		return (0);
-	}
-	else
-		write(1, "OK\n", 3);
-	return (1);
+	list_sort(&pile_a, &pile_b) ? write(1, "OK\n", 3) : write(1, "KO\n", 3);
+	free_all_list(&pile_a, &begin_i);
+	return (0);
 }
 
-int	main(int ac, char **av)
+int	main_c(int ac, char **av)
 {
 	if (ac > 1)
 		checker(ac, av);

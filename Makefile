@@ -23,9 +23,18 @@ SRCS1 = arg_stock.c\
 		use_dr.c\
 		use_p_r.c\
 		use_s.c\
-		main.c
+		list_sort.c\
+		free_all_list.c\
+		main_c.c
 
-SRCS2 = 
+SRCS2 = main_ps.c\
+		arg_stock.c\
+		inst_stock.c\
+		init_fct.c\
+		use_dr.c\
+		use_s.c\
+		use_p_r.c\
+		free_all_list.c
 
 OBJ_NAME1 = $(SRCS1:.c=.o)
 OBJ_NAME2 = $(SRCS2:.c=.o)
@@ -46,7 +55,7 @@ $(NAME1): $(OBJ_PATH1) $(OBJ1)
 	$(CCF) -o $(NAME1) $(OBJ1) libft.a
 
 $(NAME2): $(OBJ_PATH2) $(OBJ2)
-	$(CCF) -o $(NAME2) $(OBJ2)
+	$(CCF) -o $(NAME2) $(OBJ2) libft.a
 
 $(OBJ_PATH1)/%.o : $(SRC_PATH1)/%.c
 	$(CCF) -c $? $(INC) -o $@
