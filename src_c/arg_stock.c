@@ -6,13 +6,13 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 10:33:08 by maginist          #+#    #+#             */
-/*   Updated: 2019/01/31 15:56:45 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/01 11:48:29 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 
-int	nbdouble(int ac, char **av)
+int	nbdouble(int ac, char **av, t_stock *pile_a)
 {
 	int	i;
 	int j;
@@ -25,6 +25,8 @@ int	nbdouble(int ac, char **av)
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 				return (1);
+			else
+				add_to_stock(&pile_a, i);
 			j++;
 		}
 		i++;
@@ -32,7 +34,7 @@ int	nbdouble(int ac, char **av)
 	return (0);
 }
 
-int	arg_stock(int ac, char **av)
+int	arg_stock(int ac, char **av, t_stock *pile_a)
 {
 	int	i;
 	int	j;
@@ -53,5 +55,5 @@ int	arg_stock(int ac, char **av)
 			return (0);
 		i++;
 	}
-	return ((nbdouble(ac, av)) ? 0 : 1);
+	return ((nbdouble(ac, av, pile_a)) ? 0 : 1);
 }

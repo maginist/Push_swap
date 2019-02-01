@@ -6,13 +6,13 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 15:57:26 by maginist          #+#    #+#             */
-/*   Updated: 2019/01/31 16:48:21 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/01 11:40:09 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/checker.h"
 
-void	add_to_stock(t_stock *begin_i, int data)
+void	add_to_stock(t_stock **begin, int data)
 {
 	t_stock *new;
 	t_stock *current;
@@ -21,11 +21,11 @@ void	add_to_stock(t_stock *begin_i, int data)
 		return ;
 	new->data = data;
 	new->next = 0;
-	if (!(begin_i))
-		begin_i = new;
+	if (!(*begin))
+		*begin = new;
 	else
 	{
-		current = begin_i;
+		current = *begin;
 		while (current->next)
 			current = current->next;
 		current->next = new;
@@ -68,12 +68,9 @@ int	inst_stock(t_stock *begin_i)
 	while ((ret = get_next_line_mod(0, &str)))
 	{
 		if (!(ok = inst_valid(str)))
-		{
-			//free_list
 			return (0);
-		}
 		else
-			add_to_stock(begin_i, ok);
+			add_to_stock(&begin_i, ok);
 	}
 	return (0);
 }

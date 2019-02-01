@@ -6,7 +6,7 @@
 #    By: maginist <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/28 16:58:32 by maginist          #+#    #+#              #
-#    Updated: 2019/01/31 16:24:25 by maginist         ###   ########.fr        #
+#    Updated: 2019/02/01 12:51:43 by maginist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,6 +19,10 @@ SRC_PATH2 = ./src_ps
 
 SRCS1 = arg_stock.c\
 		inst_stock.c\
+		init_fct.c\
+		use_dr.c\
+		use_p_r.c\
+		use_s.c\
 		main.c
 
 SRCS2 = 
