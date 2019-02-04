@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 15:52:13 by maginist          #+#    #+#             */
-/*   Updated: 2019/01/31 16:25:34 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/04 12:12:45 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,7 @@ int		get_next_line_mod(const int fd, char **line)
 		return (1);
 	if (ret == 0 && ft_strlen(str) > 0)
 	{
-		*line = "Error\n";
+		*line = "pla\n";
 		ft_strdel(&str);
 		return (1);
 	}

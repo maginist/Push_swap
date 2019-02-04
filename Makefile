@@ -6,7 +6,7 @@
 #    By: maginist <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/28 16:58:32 by maginist          #+#    #+#              #
-#    Updated: 2019/02/01 12:51:43 by maginist         ###   ########.fr        #
+#    Updated: 2019/02/04 11:25:56 by maginist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,9 +25,9 @@ SRCS1 = arg_stock.c\
 		use_s.c\
 		list_sort.c\
 		free_all_list.c\
-		main_c.c
+		checker.c
 
-SRCS2 = main_ps.c\
+SRCS2 = push_swap.c\
 		arg_stock.c\
 		inst_stock.c\
 		init_fct.c\
@@ -39,7 +39,7 @@ SRCS2 = main_ps.c\
 OBJ_NAME1 = $(SRCS1:.c=.o)
 OBJ_NAME2 = $(SRCS2:.c=.o)
 	LIB = libft/
-	CCF = gcc -Wall -Werror -Wextra
+	CCF = gcc -g3 -Wall -Werror -Wextra
 	INC = -I./includes
 	SRC1 = $(addprefix $(SRC_PATH1)/,$(SRCS1))
 	OBJ1 = $(addprefix $(OBJ_PATH1)/,$(OBJ_NAME1))

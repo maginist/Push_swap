@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 15:57:26 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/01 11:40:09 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/04 13:08:20 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,7 +59,7 @@ int	inst_valid(char *str)
 	return (0);
 }
 
-int	inst_stock(t_stock *begin_i)
+int	inst_stock(t_stock **begin_i)
 {
 	int ok;
 	int ret;
@@ -70,7 +70,7 @@ int	inst_stock(t_stock *begin_i)
 		if (!(ok = inst_valid(str)))
 			return (0);
 		else
-			add_to_stock(&begin_i, ok);
+			add_to_stock(begin_i, ok);
 	}
-	return (0);
+	return (1);
 }

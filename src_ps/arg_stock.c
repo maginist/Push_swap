@@ -6,13 +6,13 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 10:33:08 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/01 11:48:29 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/04 13:07:55 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	nbdouble(int ac, char **av, t_stock *pile_a)
+int	nbdouble(int ac, char **av, t_stock **pile_a)
 {
 	int	i;
 	int j;
@@ -25,16 +25,15 @@ int	nbdouble(int ac, char **av, t_stock *pile_a)
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
 				return (1);
-			else
-				add_to_stock(&pile_a, i);
 			j++;
 		}
+		add_to_stock(pile_a, ft_atoi(av[i]));
 		i++;
 	}
 	return (0);
 }
 
-int	arg_stock(int ac, char **av, t_stock *pile_a)
+int	arg_stock(int ac, char **av, t_stock **pile_a)
 {
 	int	i;
 	int	j;

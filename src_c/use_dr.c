@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 12:47:34 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/01 15:48:54 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/04 11:14:41 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,6 @@ void	use_rrb(t_stock **pile_a, t_stock **pile_b)
 
 void	use_rrr(t_stock **pile_a, t_stock **pile_b)
 {
-	use_rra(t_stock **pile_a, t_stock **pile_b);
-	use_rrb(t_stock **pile_a, t_stock **pile_b);
+	use_rra(pile_a, pile_b);
+	use_rrb(pile_a, pile_b);
 }
