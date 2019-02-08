@@ -6,7 +6,7 @@
 #    By: maginist <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/28 16:58:32 by maginist          #+#    #+#              #
-#    Updated: 2019/02/04 11:25:56 by maginist         ###   ########.fr        #
+#    Updated: 2019/02/08 15:57:49 by maginist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,6 +20,7 @@ SRC_PATH2 = ./src_ps
 SRCS1 = arg_stock.c\
 		inst_stock.c\
 		init_fct.c\
+		ft_display.c\
 		use_dr.c\
 		use_p_r.c\
 		use_s.c\
@@ -29,12 +30,13 @@ SRCS1 = arg_stock.c\
 
 SRCS2 = push_swap.c\
 		arg_stock.c\
-		inst_stock.c\
-		init_fct.c\
 		use_dr.c\
 		use_s.c\
 		use_p_r.c\
-		free_all_list.c
+		free_all_list.c\
+		ft_algo3.c\
+		ft_algo10.c\
+		list_sort.c
 
 OBJ_NAME1 = $(SRCS1:.c=.o)
 OBJ_NAME2 = $(SRCS2:.c=.o)
@@ -49,7 +51,7 @@ OBJ_NAME2 = $(SRCS2:.c=.o)
 all: $(NAME1) $(NAME2)
 
 
-$(NAME1): $(OBJ_PATH1) $(OBJ1)
+$(NAME1): $(OBJ_PATH1) $(OBJ1) $(LIB)
 	make -C $(LIB) -j
 	cp libft/libft.a ./
 	$(CCF) -o $(NAME1) $(OBJ1) libft.a

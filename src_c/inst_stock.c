@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 15:57:26 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/04 13:08:20 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/08 15:06:58 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,8 +14,8 @@
 
 void	add_to_stock(t_stock **begin, int data)
 {
-	t_stock *new;
-	t_stock *current;
+	t_stock		*new;
+	t_stock		*current;
 
 	if (!(new = (t_stock*)malloc(sizeof(t_stock) * 1)))
 		return ;
@@ -32,7 +32,7 @@ void	add_to_stock(t_stock **begin, int data)
 	}
 }
 
-int	inst_valid(char *str)
+int		inst_valid(char *str)
 {
 	if (ft_strcmp(str, "sa") == 0)
 		return (1);
@@ -59,11 +59,11 @@ int	inst_valid(char *str)
 	return (0);
 }
 
-int	inst_stock(t_stock **begin_i)
+int		inst_stock(t_stock **begin_i)
 {
-	int ok;
-	int ret;
-	char *str;
+	int			ok;
+	int			ret;
+	char		*str;
 
 	while ((ret = get_next_line_mod(0, &str)))
 	{

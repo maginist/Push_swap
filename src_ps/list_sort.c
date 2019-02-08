@@ -1,28 +1,31 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   init_fct.c                                         :+:      :+:    :+:   */
+/*   list_sort.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2019/02/01 11:43:18 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/01 12:36:12 by maginist         ###   ########.fr       */
+/*   Created: 2019/02/07 15:25:57 by maginist          #+#    #+#             */
+/*   Updated: 2019/02/07 15:26:57 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-void	init_fct(void (*fct[11])(t_stock **a, t_stock **b))
+int	list_sort(t_stock **pile_a, t_stock **pile_b)
 {
-	fct[0] = use_sa;
-	fct[1] = use_sb;
-	fct[2] = use_ss;
-	fct[3] = use_pa;
-	fct[4] = use_pb;
-	fct[5] = use_ra;
-	fct[6] = use_rb;
-	fct[7] = use_rr;
-	fct[8] = use_rra;
-	fct[9] = use_rrb;
-	fct[10] = use_rrr;
+	t_stock *begin;
+
+	begin = *pile_a;
+	while (begin && (begin)->next)
+	{
+		if ((begin)->data < ((begin)->next)->data)
+			begin = (begin)->next;
+		else
+			return (0);
+	}
+	if (!(*pile_b))
+		return (1);
+	else
+		return (0);
 }
