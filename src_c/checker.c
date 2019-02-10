@@ -29,8 +29,10 @@ int	checker(int ac, char **av)
 		write(1, "Error\n", 6);
 		return (0);
 	}
+	ft_display(&pile_a, &pile_b, ac, av);
 	while (begin_i)
 	{
+		usleep(500000);
 		fct[begin_i->data - 1](&pile_a, &pile_b, 0);
 		begin_i = begin_i->next;
 		ft_display(&pile_a, &pile_b, ac, av);
