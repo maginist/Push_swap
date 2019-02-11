@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 13:24:48 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/08 16:06:56 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/11 16:29:10 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ int	checker(int ac, char **av)
 	ft_display(&pile_a, &pile_b, ac, av);
 	while (begin_i)
 	{
-		usleep(500000);
 		fct[begin_i->data - 1](&pile_a, &pile_b, 0);
 		begin_i = begin_i->next;
 		ft_display(&pile_a, &pile_b, ac, av);

@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 12:35:26 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/07 18:02:13 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/11 15:51:37 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,10 +16,10 @@ void	use_pa(t_stock **pile_a, t_stock **pile_b, int w)
 {
 	t_stock	*save;
 
-	if (w == 1)
-		write(1, "pa\n", 3);
 	if (*pile_b)
 	{
+		if (w == 1)
+			write(1, "pa\n", 3);
 		save = 0;
 		if ((*pile_b)->next)
 			save = (*pile_b)->next;
@@ -33,10 +33,10 @@ void	use_pb(t_stock **pile_a, t_stock **pile_b, int w)
 {
 	t_stock	*save;
 
-	if (w == 1)
-		write(1, "pb\n", 3);
 	if (*pile_a)
 	{
+		if (w == 1)
+			write(1, "pb\n", 3);
 		save = 0;
 		if ((*pile_a)->next)
 			save = (*pile_a)->next;
@@ -51,14 +51,15 @@ void	use_ra(t_stock **pile_a, t_stock **pile_b, int w)
 	t_stock	*end;
 	t_stock	*save;
 
-	if (w == 1)
-		write(1, "ra\n", 3);
 	(void)pile_b;
 	if (*pile_a && (*pile_a)->next)
 	{
+		if (w == 1)
+			write(1, "ra\n", 3);
 		save = (*pile_a)->next;
-		while ((*pile_a)->next)
-			end = (*pile_a)->next;
+		end = save;
+		while (end && end->next)
+			end = end->next;
 		(*pile_a)->next = NULL;
 		end->next = (*pile_a);
 		*pile_a = save;
@@ -70,14 +71,15 @@ void	use_rb(t_stock **pile_a, t_stock **pile_b, int w)
 	t_stock	*end;
 	t_stock	*save;
 
-	if (w == 1)
-		write(1, "rb\n", 3);
 	(void)pile_a;
 	if (*pile_b && (*pile_b)->next)
 	{
+		if (w == 1)
+			write(1, "rb\n", 3);
 		save = (*pile_b)->next;
-		while ((*pile_b)->next)
-			end = (*pile_b)->next;
+		end = save;
+		while (end && end->next)
+			end = end->next;
 		(*pile_b)->next = NULL;
 		end->next = (*pile_b);
 		*pile_b = save;
@@ -86,6 +88,11 @@ void	use_rb(t_stock **pile_a, t_stock **pile_b, int w)
 
 void	use_rr(t_stock **pile_a, t_stock **pile_b, int w)
 {
-	use_ra(pile_a, pile_b, w);
-	use_rb(pile_a, pile_b, w);
+	if (*pile_a && *pile_b)
+	{
+		if (w == 1)
+			write(1, "rr\n", 3);
+		use_ra(pile_a, pile_b, 0);
+		use_rb(pile_a, pile_b, 0);
+	}
 }
