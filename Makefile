@@ -6,7 +6,7 @@
 #    By: maginist <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/28 16:58:32 by maginist          #+#    #+#              #
-#    Updated: 2019/02/08 15:57:49 by maginist         ###   ########.fr        #
+#    Updated: 2019/02/12 10:54:34 by maginist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ SRCS1 = arg_stock.c\
 SRCS2 = push_swap.c\
 		arg_stock.c\
 		use_dr.c\
+		ft_algoplus.c\
 		use_s.c\
 		use_p_r.c\
 		free_all_list.c\

@@ -6,13 +6,13 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:32:46 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/11 18:41:07 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/12 11:15:08 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-static int	sizet(t_stock *a)
+int		sizet(t_stock *a)
 {
 	int	i;
 	int	ret;
@@ -21,8 +21,8 @@ static int	sizet(t_stock *a)
 	ret = 0;
 	if (i >= 0 && i <= 9)
 		return (1);
-//	if (i <= -1 && i >= -9)
-//		return (2);i
+	if (i <= -1 && i >= -9)
+		return (2);
 	if (i < 0)
 		ret++;
 	while (i != 0)
@@ -44,6 +44,11 @@ void	ft_display_nbr(t_stock *a)
 	space = 6;
 	while ((nbra + space + spaceb) != 13 && space > 0 && spaceb > 0)
 	{
+		if (a->data < 0 && (space + nbra + spaceb) == 12)
+		{
+			spaceb++;
+			break ;
+		}
 		spaceb--;
 		space--;
 	}
@@ -56,6 +61,14 @@ void	ft_display_nbr(t_stock *a)
 		write(1, " ", 1);
 }
 
+void	print_tab(void)
+{
+	system("clear");
+	write(1, "           _____________  _____________ \n", 41);
+	write(1, "          |      A      ||      B      |\n", 41);
+	write(1, "          |-------------||-------------|\n", 41);
+}
+
 void	ft_display(t_stock **a, t_stock **b, int ac, char **av)
 {
 	t_stock	*cura;
@@ -66,10 +79,7 @@ void	ft_display(t_stock **a, t_stock **b, int ac, char **av)
 	usleep(600000);
 	if (ac > 2 && av[1][0] == '-' && av[1][1] == 'v')
 	{
-		system("clear");
-		write(1, "           _____________  _____________ \n", 41);
-		write(1, "          |      A      ||      B      |\n", 41);
-		write(1, "          |-------------||-------------|\n", 41);
+		print_tab();
 		while (cura || curb)
 		{
 			write(1, "          |", 11);
@@ -84,6 +94,5 @@ void	ft_display(t_stock **a, t_stock **b, int ac, char **av)
 		}
 		write(1, "          |_____________||_____________|\n", 41);
 	}
-	else
-		return ;
+	return ;
 }

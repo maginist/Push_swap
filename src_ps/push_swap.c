@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:31:25 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/11 16:56:14 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/12 10:54:15 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,10 @@ void	push_swap(int ac, char **av)
 			write(1, "sa\n", 3);
 	if (ac == 4)
 		ft_algo3(&pile_a);
-	if (ac > 4 && ac <= 11)
+	else if (ac > 4 && ac <= 11)
 		ft_algo10(&pile_a, &pile_b);
-//	if (ac > 11)
-//		ft_algoplus(&pile_a, &pile_b);
+	else
+		ft_algoplus(&pile_a, &pile_b);
 	free_all_list(&pile_a, &pile_b);
 	return ;
 }
