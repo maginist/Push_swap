@@ -6,29 +6,45 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 10:33:08 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/08 16:06:16 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/13 18:22:47 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	nbdouble(int ac, char **av, t_stock **pile_a)
+void	add_to_stock(t_stock **begin, int data)
+{
+	t_stock	*new;
+	t_stock	*current;
+
+	current = NULL;
+	new = NULL;
+	if (!(new = (t_stock*)malloc(sizeof(t_stock) * 1)))
+		return ;
+	new->data = data;
+	new->next = 0;
+	if (!(*begin))
+		*begin = new;
+	else
+	{
+		current = *begin;
+		while (current->next)
+			current = current->next;
+		current->next = new;
+	}
+}
+
+int		nbdouble(int ac, char **av, t_stock **pile_a)
 {
 	int	i;
 	int j;
 
+	i = 1;
 	if (ac > 2 && av[1][0] == '-' && av[1][1] == 'v')
-	{
 		i = 2;
-		j = 3;
-	}
-	else
-	{
-		i = 1;
-		j = 2;
-	}
 	while (i < ac)
 	{
+		j = i + 1;
 		while (j < ac)
 		{
 			if (ft_atoi(av[i]) == ft_atoi(av[j]))
@@ -41,15 +57,14 @@ int	nbdouble(int ac, char **av, t_stock **pile_a)
 	return (0);
 }
 
-int	arg_stock(int ac, char **av, t_stock **pile_a)
+int		arg_stock(int ac, char **av, t_stock **pile_a)
 {
 	int	i;
 	int	j;
 
+	i = 1;
 	if (ac > 2 && av[1][0] == '-' && av[1][1] == 'v')
 		i = 2;
-	else
-		i = 1;
 	if (ac == 1)
 		return (2);
 	while (i < ac)

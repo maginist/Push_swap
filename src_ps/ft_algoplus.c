@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:28:28 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/12 10:54:54 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/13 17:15:17 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,5 @@
 
 void	ft_algoplus(t_stock **a, t_stock **b)
 {
-	t_stock	*current;
-	int		np;
+	
 }

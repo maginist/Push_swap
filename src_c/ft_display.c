@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:32:46 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/12 11:15:08 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/13 16:37:39 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,7 @@ void	ft_display_nbr(t_stock *a)
 	space = 6;
 	while ((nbra + space + spaceb) != 13 && space > 0 && spaceb > 0)
 	{
-		if (a->data < 0 && (space + nbra + spaceb) == 12)
+		if ((nbra % 2) != 1 && (nbra + space + spaceb) < 13)
 		{
 			spaceb++;
 			break ;

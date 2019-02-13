@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:31:25 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/12 10:54:15 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/13 19:00:57 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,12 +21,15 @@ void	push_swap(int ac, char **av)
 	pile_b = 0;
 	if (!(arg_stock(ac, av, &pile_a)))
 	{
-		free_all_list(&pile_a, &pile_b);
+		free_all_list(&pile_a);
 		write(1, "Error\n", 6);
 		return ;
 	}
 	if (list_sort(&pile_a, &pile_b))
+	{
+		free_all_list(&pile_a);
 		return ;
+	}
 	if (ac == 3)
 		if ((pile_a)->data > ((pile_a)->next)->data)
 			write(1, "sa\n", 3);
@@ -34,9 +37,9 @@ void	push_swap(int ac, char **av)
 		ft_algo3(&pile_a);
 	else if (ac > 4 && ac <= 11)
 		ft_algo10(&pile_a, &pile_b);
-	else
-		ft_algoplus(&pile_a, &pile_b);
-	free_all_list(&pile_a, &pile_b);
+//	else
+//		ft_algoplus(&pile_a, &pile_b);
+	free_all_list(&pile_a);
 	return ;
 }
 

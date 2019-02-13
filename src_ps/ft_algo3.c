@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 10:51:13 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/07 15:16:55 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/13 17:23:03 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,9 +25,9 @@ void	ft_algo3_2(int first, int mid, int end)
 
 void	ft_algo3(t_stock **a)
 {
-	int	first;
-	int	mid;
-	int	end;
+	long	first;
+	long	mid;
+	long	end;
 
 	first = (*a)->data;
 	mid = ((*a)->next)->data;
