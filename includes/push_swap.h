@@ -25,6 +25,8 @@ typedef struct		s_stock
 	struct s_stock	*next;
 }					t_stock;
 
+int				first_algo(t_stock *p, t_stock **a, t_stock **b, int w);
+int				second_algo(t_stock *p, t_stock **a, t_stock **b, int w); 
 void				ft_display(t_stock **a, t_stock **b, int ac, char **av);
 void				add_to_stock(t_stock **begin, int data);
 int					arg_stock(int ac, char **av, t_stock **pile_a);

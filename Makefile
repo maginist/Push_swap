@@ -35,6 +35,9 @@ SRCS2 = push_swap.c\
 		use_p_r.c\
 		free_all_list.c\
 		ft_algo3.c\
+		ft_algoplus.c\
+		first_algo.c\
+		second_algo.c\
 		ft_algo10.c\
 		list_sort.c
 

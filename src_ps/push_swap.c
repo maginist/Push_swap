@@ -12,6 +12,21 @@
 
 #include "../includes/push_swap.h"
 
+void	algo(t_stock *pile_a, t_stock *pile_b, int ac)
+{
+	if (ac == 3)
+		if ((pile_a)->data > ((pile_a)->next)->data)
+			write(1, "sa\n", 3);
+	if (ac == 4)
+		ft_algo3(&pile_a);
+	else if (ac > 4 && ac <= 11)
+		ft_algo10(&pile_a, &pile_b);
+	//else
+	//	ft_algoplus(&pile_a, &pile_b);
+	return ;
+
+}
+
 void	push_swap(int ac, char **av)
 {
 	t_stock	*pile_a;
@@ -30,15 +45,7 @@ void	push_swap(int ac, char **av)
 		free_all_list(&pile_a);
 		return ;
 	}
-	if (ac == 3)
-		if ((pile_a)->data > ((pile_a)->next)->data)
-			write(1, "sa\n", 3);
-	if (ac == 4)
-		ft_algo3(&pile_a);
-	else if (ac > 4 && ac <= 11)
-		ft_algo10(&pile_a, &pile_b);
-//	else
-//		ft_algoplus(&pile_a, &pile_b);
+	algo(pile_a, pile_b, ac);
 	free_all_list(&pile_a);
 	return ;
 }

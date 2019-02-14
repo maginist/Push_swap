@@ -76,7 +76,8 @@ SRCS = ft_memset.c\
 	   get_next_line_mod.c\
 	   ft_atol.c\
 	   ft_strrev.c\
-	   ft_putnbr_base.c
+	   ft_putnbr_base.c\
+	   sort_int_tab.c
 
 OBJS = $(SRCS:.c=.o)
 
@@ -87,7 +88,7 @@ INC = libft.h
 all : $(NAME)
 
 $(NAME) : $(INC) $(OBJS) $(SRCS)
-	gcc $(FLGS) -c $(SRCS) -I$(INC)
+	gcc $(FLGS) -c $(SRCS) $(INC)
 	ar rcs $(NAME) $(OBJS)
 
 clean :

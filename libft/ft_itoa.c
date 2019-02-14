@@ -32,10 +32,8 @@ char		*ft_itoa(int n)
 	int		j;
 	int		neg;
 	char	*str;
-	int		i;
 
 	neg = 1;
-	i = 0;
 	j = ft_countnb(n);
 	if (n < 0)
 		neg = -1;

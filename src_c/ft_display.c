@@ -76,9 +76,10 @@ void	ft_display(t_stock **a, t_stock **b, int ac, char **av)
 
 	cura = *a;
 	curb = *b;
-	usleep(600000);
 	if (ac > 2 && av[1][0] == '-' && av[1][1] == 'v')
 	{
+
+		usleep(600000);
 		print_tab();
 		while (cura || curb)
 		{

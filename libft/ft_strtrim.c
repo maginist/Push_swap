@@ -31,11 +31,9 @@ char		*ft_strtrim(char const *s)
 {
 	int		mx;
 	int		mi;
-	int		i;
 	char	*str;
 	char	*p;
 
-	i = 0;
 	mi = 0;
 	if (s)
 	{

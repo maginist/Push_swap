@@ -17,6 +17,7 @@
 # include <string.h>
 # include <stdlib.h>
 
+void				sort_int_tab(int *tab, unsigned int size);
 long				ft_atol(const char *str);
 int					get_next_line_mod(const int fd, char **line);
 void				*ft_memset(void *b, int c, size_t len);
