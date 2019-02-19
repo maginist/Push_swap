@@ -6,7 +6,7 @@
 #    By: floblanc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/12 10:09:35 by floblanc          #+#    #+#              #
-#    Updated: 2019/01/31 16:24:47 by maginist         ###   ########.fr        #
+#    Updated: 2019/02/18 09:29:08 by maginist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -88,7 +88,7 @@ INC = libft.h
 all : $(NAME)
 
 $(NAME) : $(INC) $(OBJS) $(SRCS)
-	gcc $(FLGS) -c $(SRCS) $(INC)
+	gcc $(FLGS) -c $(SRCS) -I$(INC)
 	ar rcs $(NAME) $(OBJS)
 
 clean :

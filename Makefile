@@ -6,7 +6,7 @@
 #    By: maginist <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/28 16:58:32 by maginist          #+#    #+#              #
-#    Updated: 2019/02/13 16:13:53 by maginist         ###   ########.fr        #
+#    Updated: 2019/02/19 09:40:08 by maginist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -35,10 +35,10 @@ SRCS2 = push_swap.c\
 		use_p_r.c\
 		free_all_list.c\
 		ft_algo3.c\
-		ft_algoplus.c\
-		first_algo.c\
-		second_algo.c\
+		ft_algo3_rev.c\
 		ft_algo10.c\
+		ft_algoplus.c\
+		second_algo.c\
 		list_sort.c
 
 OBJ_NAME1 = $(SRCS1:.c=.o)

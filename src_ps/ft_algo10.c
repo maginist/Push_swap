@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:39:01 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/11 16:53:47 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/18 12:01:16 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,8 +37,8 @@ void	algotest(t_stock **a, t_stock **b, int *minp, int *tmp)
 
 void	find_min(t_stock **a, int *pos, int *minp, int *tmp)
 {
-	t_stock *cura;
-	t_stock *min;
+	t_stock	*cura;
+	t_stock	*min;
 
 	cura = (*a)->next;
 	min = *a;
@@ -58,7 +58,7 @@ void	find_min(t_stock **a, int *pos, int *minp, int *tmp)
 
 int		size_list(t_stock **a)
 {
-	t_stock *current;
+	t_stock	*current;
 	int		i;
 
 	i = 0;
@@ -79,6 +79,7 @@ void	ft_algo10(t_stock **a, t_stock **b)
 
 	minp = 0;
 	pos = 1;
+	tmp = 0;
 	find_min(a, &pos, &minp, &tmp);
 	algotest(a, b, &minp, &tmp);
 	if (size_list(a) <= 3)

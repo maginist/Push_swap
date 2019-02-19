@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:31:25 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/13 19:00:57 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/18 18:22:40 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,10 +21,9 @@ void	algo(t_stock *pile_a, t_stock *pile_b, int ac)
 		ft_algo3(&pile_a);
 	else if (ac > 4 && ac <= 11)
 		ft_algo10(&pile_a, &pile_b);
-	//else
-	//	ft_algoplus(&pile_a, &pile_b);
+	else
+		ft_algoplus(&pile_a, &pile_b);
 	return ;
-
 }
 
 void	push_swap(int ac, char **av)
