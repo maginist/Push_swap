@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 12:35:26 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/11 15:51:37 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/20 16:44:45 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -52,6 +52,7 @@ void	use_ra(t_stock **pile_a, t_stock **pile_b, int w)
 	t_stock	*save;
 
 	(void)pile_b;
+	save = 0;
 	if (*pile_a && (*pile_a)->next)
 	{
 		if (w == 1)
@@ -72,6 +73,7 @@ void	use_rb(t_stock **pile_a, t_stock **pile_b, int w)
 	t_stock	*save;
 
 	(void)pile_a;
+	save = 0;
 	if (*pile_b && (*pile_b)->next)
 	{
 		if (w == 1)

@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:31:25 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/18 18:22:40 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/21 15:44:06 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@ void	algo(t_stock *pile_a, t_stock *pile_b, int ac)
 		ft_algo10(&pile_a, &pile_b);
 	else
 		ft_algoplus(&pile_a, &pile_b);
+	free_all_list(&pile_a);
 	return ;
 }
 
@@ -45,7 +46,6 @@ void	push_swap(int ac, char **av)
 		return ;
 	}
 	algo(pile_a, pile_b, ac);
-	free_all_list(&pile_a);
 	return ;
 }
 

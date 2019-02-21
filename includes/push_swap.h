@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:08:16 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/18 18:30:13 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/20 16:15:42 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,10 +25,10 @@ typedef struct		s_stock
 	struct s_stock	*next;
 }					t_stock;
 
+int					pos_best(t_stock **a, t_stock *cur);
+int					list_sortb(t_stock **b);
 int					size_list(t_stock **a);
 int					ft_algo3_rev(t_stock **a, t_stock **b, int w);
-void				second_algo(t_stock **a, t_stock **b,
-		t_stock *pa, t_stock *pb);
 void				ft_display(t_stock **a, t_stock **b, int ac, char **av);
 void				add_to_stock(t_stock **begin, int data);
 int					arg_stock(int ac, char **av, t_stock **pile_a);
