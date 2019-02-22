@@ -6,11 +6,23 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:25:57 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/20 17:01:38 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/22 15:03:11 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	print_list(t_stock **a)
+{
+	t_stock *lol;
+
+	lol = *a;
+	while (lol)
+	{
+		printf("lol = %d\n", lol->data);
+		lol = lol->next;
+	}
+}
 
 int	pos_best(t_stock **a, t_stock *cur)
 {
@@ -19,10 +31,8 @@ int	pos_best(t_stock **a, t_stock *cur)
 
 	beg = *a;
 	pos = 0;
-	while (beg)
+	while (beg && beg->data != cur->data)
 	{
-		if (beg->data == cur->data)
-			return (pos);
 		pos++;
 		beg = beg->next;
 	}

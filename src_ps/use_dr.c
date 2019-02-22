@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/01 12:47:34 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/11 15:53:08 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/22 13:45:23 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,6 @@ void	use_rra(t_stock **pile_a, t_stock **pile_b, int w)
 		before->next = NULL;
 		end->next = (*pile_a);
 		*pile_a = end;
-		return ;
 	}
 }
 

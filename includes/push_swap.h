@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 11:08:16 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/20 16:15:42 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/22 13:42:25 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,7 @@ typedef struct		s_stock
 	struct s_stock	*next;
 }					t_stock;
 
+void				print_list(t_stock **a);
 int					pos_best(t_stock **a, t_stock *cur);
 int					list_sortb(t_stock **b);
 int					size_list(t_stock **a);
