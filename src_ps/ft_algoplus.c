@@ -14,12 +14,13 @@
 
 int		find_max(t_stock **b)
 {
+	//a garder
 	t_stock *beg;
 	t_stock	*max;
 	int		posm;
 	int		pos;
 
-	pos = 1;
+	pos = 0;
 	posm = 0;
 	max = *b;
 	beg = (*b)->next;
@@ -50,17 +51,27 @@ int		pos_goodb(t_stock **b, t_stock *c)
 		return (0);
 	inf = 0;
 	if (pb && pb->data < c->data)
+	{
 		while (pb && pb->data < c->data)
 		{
 			inf++;
 			pb = pb->next;
 		}
+		if(pb && pb->next && pb->next->data > c->data)
+			while (pb && pb->next && pb->data > c->data)
+			{
+				inf++;
+				pb = pb->next;
+			} 
+	}
 	else if (pb && pb->data > c->data)
+	{
 		while (pb && pb->data > c->data)
 		{
 			inf++;
 			pb = pb->next;
 		}
+	}
 	if (!(pb))
 		inf = find_max(b);
 	return (inf);
@@ -97,9 +108,8 @@ void	real_rotate(t_stock **a, t_stock *best, t_stock **b)
 	int		size;
 	int		posa;
 	int		sizea;
-	int		tmp;
+	t_stock	*pb;
 
-	tmp = (*b)->data;
 	sizea = size_list(a);
 	size = size_list(b);
 	posa = rot_cal(a, best, b, 4);
@@ -107,7 +117,7 @@ void	real_rotate(t_stock **a, t_stock *best, t_stock **b)
 	if (*a && posa < 0)
 	{
 		posa = sizea + posa;
-		while (*a && posa != 0)
+		while (*a && posa > 0)
 		{
 			use_rra(a, b, 1);
 			posa--;
@@ -120,9 +130,20 @@ void	real_rotate(t_stock **a, t_stock *best, t_stock **b)
 	}
 	if (*b && posb < 0)
 	{
-		posb = size + posb + 1;
-		while (*b && posb != 0)
+		posb = size + posb;
+		while (*b && posb > 0)
 		{
+			if ((*b)->data < best->data)
+			{
+				pb = *b;
+				while (pb && pb->next)
+					pb = pb->next;
+				if (pb && pb->data > best->data)
+				{
+					use_pb(a, b, 1);
+					return ;
+				}
+			}
 			use_rrb(a, b, 1);
 			posb--;
 		}

@@ -88,7 +88,7 @@ INC = libft.h
 all : $(NAME)
 
 $(NAME) : $(INC) $(OBJS) $(SRCS)
-	gcc $(FLGS) -c $(SRCS) -I$(INC)
+	gcc $(FLGS) -c $(SRCS)
 	ar rcs $(NAME) $(OBJS)
 
 clean :

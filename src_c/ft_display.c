@@ -63,7 +63,7 @@ void	ft_display_nbr(t_stock *a)
 
 void	print_tab(void)
 {
-	system("clear");
+	//system("clear");
 	write(1, "           _____________  _____________ \n", 41);
 	write(1, "          |      A      ||      B      |\n", 41);
 	write(1, "          |-------------||-------------|\n", 41);
@@ -79,7 +79,7 @@ void	ft_display(t_stock **a, t_stock **b, int ac, char **av)
 	if (ac > 2 && av[1][0] == '-' && av[1][1] == 'v')
 	{
 
-		usleep(600000);
+		usleep(1000000);//600000
 		print_tab();
 		while (cura || curb)
 		{
