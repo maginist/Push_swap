@@ -38,6 +38,7 @@ SRCS2 = push_swap.c\
 		ft_algo3_rev.c\
 		ft_algoplus.c\
 		ft_algo10.c\
+		norm_killer.c\
 		list_sort.c
 
 OBJ_NAME1 = $(SRCS1:.c=.o)

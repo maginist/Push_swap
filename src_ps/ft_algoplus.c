@@ -12,71 +12,6 @@
 
 #include "../includes/push_swap.h"
 
-int		find_max(t_stock **b)
-{
-	//a garder
-	t_stock *beg;
-	t_stock	*max;
-	int		posm;
-	int		pos;
-
-	pos = 0;
-	posm = 0;
-	max = *b;
-	beg = (*b)->next;
-	while (beg)
-	{
-		pos++;
-		if (max->data < beg->data)
-		{
-			posm = pos;
-			max = beg;
-		}
-		beg = beg->next;
-	}
-	return (posm);
-}
-
-int		pos_goodb(t_stock **b, t_stock *c)
-{
-	int		inf;
-	t_stock	*pb;
-	t_stock *end;
-
-	end = *b;
-	pb = *b;
-	while (end->next)
-		end = end->next;
-	if (end->data > c->data && pb->data < c->data)
-		return (0);
-	inf = 0;
-	if (pb && pb->data < c->data)
-	{
-		while (pb && pb->data < c->data)
-		{
-			inf++;
-			pb = pb->next;
-		}
-		if(pb && pb->next && pb->next->data > c->data)
-			while (pb && pb->next && pb->data > c->data)
-			{
-				inf++;
-				pb = pb->next;
-			} 
-	}
-	else if (pb && pb->data > c->data)
-	{
-		while (pb && pb->data > c->data)
-		{
-			inf++;
-			pb = pb->next;
-		}
-	}
-	if (!(pb))
-		inf = find_max(b);
-	return (inf);
-}
-
 int		rot_cal(t_stock **a, t_stock *cur, t_stock **b, int w)
 {
 	int		posc;
@@ -114,6 +49,25 @@ void	real_rotate(t_stock **a, t_stock *best, t_stock **b)
 	size = size_list(b);
 	posa = rot_cal(a, best, b, 4);
 	posb = rot_cal(a, best, b, 5);
+	if (*a && posa < 0 && *b && posb < 0)
+	{
+		posb = size + posb;
+		posa = sizea + posa;
+		while (*a && posa > 0 && *b && posb > 0)
+		{
+			if ((*b)->data < best->data)
+			{
+				pb = *b;
+				while (pb && pb->next)
+					pb = pb->next;
+				if (pb && pb->data > best->data)
+					break ;
+			}
+			use_rrr(a, b, 1);
+			posa--;
+			posb--;
+		}
+	}
 	if (*a && posa < 0)
 	{
 		posa = sizea + posa;
@@ -123,10 +77,22 @@ void	real_rotate(t_stock **a, t_stock *best, t_stock **b)
 			posa--;
 		}
 	}
+	posb = rot_cal(a, best, b, 5);
+	while (*a && posa > 0 && *b && posb > 0)
+	{
+		use_rr(a, b, 1);
+		posa--;
+		posb--;
+	}
 	while (*a && posa > 0)
 	{
 		use_ra(a, b, 1);
 		posa--;
+	}
+	while (*b && posb > 0)
+	{
+		use_rb(a, b, 1);
+		posb--;
 	}
 	if (*b && posb < 0)
 	{
@@ -147,11 +113,6 @@ void	real_rotate(t_stock **a, t_stock *best, t_stock **b)
 			use_rrb(a, b, 1);
 			posb--;
 		}
-	}
-	while (*b && posb > 0)
-	{
-		use_rb(a, b, 1);
-		posb--;
 	}
 	use_pb(a, b, 1);
 }
@@ -179,6 +140,7 @@ void	ft_algoplus(t_stock **a, t_stock **b)
 		}
 		real_rotate(a, best, b);
 	}
+	make_it_sort(a, b);
 	while (*b)
 		use_pa(a, b, 1);
 	return ;

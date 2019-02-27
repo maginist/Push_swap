@@ -25,7 +25,9 @@ typedef struct		s_stock
 	struct s_stock	*next;
 }					t_stock;
 
-void				print_list(t_stock **a);
+int					find_max(t_stock **b);
+void				make_it_sort(t_stock **a, t_stock **b);
+int					pos_goodb(t_stock **b, t_stock *c);
 int					pos_best(t_stock **a, t_stock *cur);
 int					list_sortb(t_stock **b);
 int					size_list(t_stock **a);
