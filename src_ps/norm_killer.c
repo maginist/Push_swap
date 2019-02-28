@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   norm_killer.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2019/02/28 11:03:41 by maginist          #+#    #+#             */
+/*   Updated: 2019/02/28 11:21:05 by maginist         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "../includes/push_swap.h"
 
 int	pos_best(t_stock **a, t_stock *cur)
@@ -39,53 +51,24 @@ int		find_max(t_stock **b)
 	return (posm);
 }
 
-void	make_it_sort(t_stock **a, t_stock **b)
+int		pos_goodb2(t_stock *pb, t_stock *c, int inf, t_stock **b)
 {
-	int		i;
-	int		size;
-
-	size = size_list(b);
-	i = find_max(b);
-	if (i == 0)
-		return ;
-	if (i >= size / 2)
-		i = -i;
-	if (i < 0)
+	 while (pb && pb->data < c->data)
 	{
-		i = size + i;
-		while (i != 0)
-		{
-			use_rrb(a, b, 1);
-			i--;
-		}
-	}
-	else
-		while (i != 0)
-		{
-			use_rb(a, b, 1);
-			i--;
-		}
-	return ;
-}
-
-int     pos_goodb2(t_stock *pb, t_stock *c, int inf, t_stock **b)
-{
-    while (pb && pb->data < c->data)
-  	{
 		inf++;
 		pb = pb->next;
 	}
 	if (pb && pb->data > c->data)
 	{
-        while (pb && pb->data > c->data)
+		while (pb && pb->data > c->data)
 		{
 			inf++;
 			pb = pb->next;
 		}
-    }
-    if (!(pb))
+	}
+	if (!(pb))
 		inf = find_max(b);
-    return (inf); 
+	return (inf);
 }
 
 int		pos_goodb(t_stock **b, t_stock *c)
@@ -102,7 +85,7 @@ int		pos_goodb(t_stock **b, t_stock *c)
 		return (0);
 	inf = 0;
 	if (pb && pb->data < c->data)
-        inf = pos_goodb2(pb, c, inf, b);
+		inf = pos_goodb2(pb, c, inf, b);
 	else if (pb && pb->data > c->data)
 		while (pb && pb->data > c->data)
 		{

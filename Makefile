@@ -6,7 +6,7 @@
 #    By: maginist <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2019/01/28 16:58:32 by maginist          #+#    #+#              #
-#    Updated: 2019/02/20 11:44:54 by maginist         ###   ########.fr        #
+#    Updated: 2019/02/28 13:48:35 by maginist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -51,15 +51,16 @@ OBJ_NAME2 = $(SRCS2:.c=.o)
 	SRC2 = $(addprefix $(SRC_PATH2)/,$(SRCS2))
 	OBJ2 = $(addprefix $(OBJ_PATH2)/,$(OBJ_NAME2))
 
-all: $(NAME1) $(NAME2)
+all: $(NAME1) $(NAME2) LIB
 
-
-$(NAME1): $(OBJ_PATH1) $(OBJ1) $(LIB)
+LIB: $(LIB)
 	make -C $(LIB) -j
 	cp libft/libft.a ./
+
+$(NAME1): $(OBJ_PATH1) $(OBJ1) LIB
 	$(CCF) -o $(NAME1) $(OBJ1) libft.a
 
-$(NAME2): $(OBJ_PATH2) $(OBJ2)
+$(NAME2): $(OBJ_PATH2) $(OBJ2) LIB
 	$(CCF) -o $(NAME2) $(OBJ2) libft.a
 
 $(OBJ_PATH1)/%.o : $(SRC_PATH1)/%.c

@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:31:25 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/22 16:29:10 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:25:12 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,11 @@ void	algo(t_stock *pile_a, t_stock *pile_b, int ac)
 {
 	if (ac == 3)
 		if ((pile_a)->data > ((pile_a)->next)->data)
+		{
 			write(1, "sa\n", 3);
+			free_all_list(&pile_a);
+			return ;
+		}
 	if (ac == 4)
 		ft_algo3(&pile_a);
 	else if (ac > 4 && ac <= 15)

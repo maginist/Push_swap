@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 13:24:48 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/13 19:16:12 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/28 13:54:07 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ void	checkinit(t_stock *begin_i, t_stock *pile_a, int ac, char **av)
 	}
 	list_sort(&pile_a, &pile_b) ? write(1, "OK\n", 3) : write(1, "KO\n", 3);
 	free_all_list(&pile_a);
+	free_all_list(&pile_b);
 	free_all_list(&begin_i);
 }
 
