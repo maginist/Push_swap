@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:25:57 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/28 13:41:44 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:46:42 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,7 @@ void	make_it_sort(t_stock **a, t_stock **b)
 	return ;
 }
 
-int	list_sort(t_stock **pile_a, t_stock **pile_b)
+int		list_sort(t_stock **pile_a, t_stock **pile_b)
 {
 	t_stock	*begin;
 

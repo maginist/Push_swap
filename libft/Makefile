@@ -6,11 +6,13 @@
 #    By: floblanc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/12 10:09:35 by floblanc          #+#    #+#              #
-#    Updated: 2019/02/18 09:29:08 by maginist         ###   ########.fr        #
+#    Updated: 2019/03/05 15:48:08 by maginist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
+
+CFLAGS = -Wall -Werror -Wextra
 
 SRCS = ft_memset.c\
 	   ft_bzero.c\
@@ -81,14 +83,13 @@ SRCS = ft_memset.c\
 
 OBJS = $(SRCS:.c=.o)
 
-FLGS = -Wall -Werror -Wextra
 
 INC = libft.h
 
 all : $(NAME)
 
 $(NAME) : $(INC) $(OBJS) $(SRCS)
-	gcc $(FLGS) -c $(SRCS)
+	$(CC) $(CFLAGS) -c $(SRCS)
 	ar rcs $(NAME) $(OBJS)
 
 clean :

@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 10:33:08 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/13 18:22:47 by maginist         ###   ########.fr       */
+/*   Updated: 2019/03/05 14:13:29 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	add_to_stock(t_stock **begin, int data)
 	current = NULL;
 	new = NULL;
 	if (!(new = (t_stock*)malloc(sizeof(t_stock) * 1)))
-		return ;
+		exit(0);
 	new->data = data;
 	new->next = 0;
 	if (!(*begin))

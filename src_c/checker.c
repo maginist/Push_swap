@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 13:24:48 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/28 13:54:07 by maginist         ###   ########.fr       */
+/*   Updated: 2019/03/05 13:29:45 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,7 @@ void	checkinit(t_stock *begin_i, t_stock *pile_a, int ac, char **av)
 	free_all_list(&begin_i);
 }
 
-int	checker(int ac, char **av)
+int		checker(int ac, char **av)
 {
 	t_stock	*begin_i;
 	t_stock	*pile_a;
@@ -51,7 +51,7 @@ int	checker(int ac, char **av)
 	return (0);
 }
 
-int	main(int ac, char **av)
+int		main(int ac, char **av)
 {
 	if (ac > 1)
 		checker(ac, av);

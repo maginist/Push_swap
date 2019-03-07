@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/31 15:57:26 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/13 18:38:48 by maginist         ###   ########.fr       */
+/*   Updated: 2019/03/05 14:23:45 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,10 +42,10 @@ int		inst_valid(char *str)
 int		inst_stock(t_stock **begin_i)
 {
 	int			ok;
-	int			ret;
 	char		*str;
 
-	while ((ret = get_next_line_mod(0, &str)))
+	str = NULL;
+	while ((get_next_line_mod(0, &str) > 0))
 	{
 		if (!(ok = inst_valid(str)))
 		{
@@ -58,5 +58,7 @@ int		inst_stock(t_stock **begin_i)
 		if (str)
 			ft_strdel(&str);
 	}
+	if (str)
+		ft_strdel(&str);
 	return (1);
 }

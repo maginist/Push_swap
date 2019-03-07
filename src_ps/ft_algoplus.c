@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/12 09:28:28 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/28 12:49:04 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:43:25 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -139,33 +139,4 @@ void	real_rotate(t_stock **a, t_stock *best, t_stock **b)
 	if (*b && posb < 0)
 		rotate_end(a, b, posb, best);
 	use_pb(a, b, 1);
-}
-
-void	ft_algoplus(t_stock **a, t_stock **b)
-{
-	int		res;
-	int		rb;
-	t_stock	*cur;
-	t_stock	*best;
-
-	ft_algo3_rev(a, b, 1);
-	while (*a)
-	{
-		best = *a;
-		cur = (*a)->next;
-		rb  = rot_cal(a, best, b, 1) + rot_cal(a, best, b, 2);
-		while (cur)
-		{
-			res = rot_cal(a, cur, b, 1) + rot_cal(a, cur, b, 2);
-			if (res < rb)
-			{
-				best = cur;
-				rb = res;
-			}
-			cur = cur->next;
-		}
-		real_rotate(a, best, b);
-	}
-	make_it_sort(a, b);
-	return ;
 }

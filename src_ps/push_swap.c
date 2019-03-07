@@ -6,11 +6,40 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/07 15:31:25 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/28 14:25:12 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/28 15:27:10 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
+
+void	ft_algoplus(t_stock **a, t_stock **b)
+{
+	int		res;
+	int		rb;
+	t_stock	*cur;
+	t_stock	*best;
+
+	ft_algo3_rev(a, b, 1);
+	while (*a)
+	{
+		best = *a;
+		cur = (*a)->next;
+		rb = rot_cal(a, best, b, 1) + rot_cal(a, best, b, 2);
+		while (cur)
+		{
+			res = rot_cal(a, cur, b, 1) + rot_cal(a, cur, b, 2);
+			if (res < rb)
+			{
+				best = cur;
+				rb = res;
+			}
+			cur = cur->next;
+		}
+		real_rotate(a, best, b);
+	}
+	make_it_sort(a, b);
+	return ;
+}
 
 void	algo(t_stock *pile_a, t_stock *pile_b, int ac)
 {

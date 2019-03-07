@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/18 12:45:07 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/20 13:38:33 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:46:01 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ int	ft_algo3_rev(t_stock **a, t_stock **b, int w)
 	if (first > mid && mid < end && first < end)
 	{
 		use_rrb(a, b, w);
-		return	(res);
+		return (res);
 	}
 	if (first < mid && mid > end && first < end)
 	{

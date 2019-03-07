@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/08 15:32:46 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/28 14:30:10 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:45:15 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -78,7 +78,6 @@ void	ft_display(t_stock **a, t_stock **b, int ac, char **av)
 	curb = *b;
 	if (ac > 2 && av[1][0] == '-' && av[1][1] == 'v')
 	{
-
 		usleep(600000);
 		print_tab();
 		while (cura || curb)

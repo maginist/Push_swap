@@ -6,13 +6,13 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/02/28 11:03:41 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/28 11:21:05 by maginist         ###   ########.fr       */
+/*   Updated: 2019/02/28 14:48:42 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "../includes/push_swap.h"
 
-int	pos_best(t_stock **a, t_stock *cur)
+int		pos_best(t_stock **a, t_stock *cur)
 {
 	int		pos;
 	t_stock *beg;
@@ -53,7 +53,7 @@ int		find_max(t_stock **b)
 
 int		pos_goodb2(t_stock *pb, t_stock *c, int inf, t_stock **b)
 {
-	 while (pb && pb->data < c->data)
+	while (pb && pb->data < c->data)
 	{
 		inf++;
 		pb = pb->next;

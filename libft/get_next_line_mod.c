@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 15:52:13 by maginist          #+#    #+#             */
-/*   Updated: 2019/02/13 18:25:53 by maginist         ###   ########.fr       */
+/*   Updated: 2019/03/05 14:25:04 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,5 +82,6 @@ int		get_next_line_mod(const int fd, char **line)
 		ft_strdel(&str);
 		return (1);
 	}
+	ft_strdel(&str);
 	return (ret);
 }
