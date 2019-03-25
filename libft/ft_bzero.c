@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/07 14:25:27 by maginist          #+#    #+#             */
-/*   Updated: 2018/11/07 14:37:26 by maginist         ###   ########.fr       */
+/*   Updated: 2019/03/22 09:39:02 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,5 +14,6 @@
 
 void	ft_bzero(void *s, size_t n)
 {
-	ft_memset(s, 0, n);
+	if (!(ft_memset(s, 0, n)))
+		exit(0);
 }

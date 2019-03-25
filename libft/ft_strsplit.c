@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/12 13:06:00 by maginist          #+#    #+#             */
-/*   Updated: 2018/11/14 15:23:13 by maginist         ###   ########.fr       */
+/*   Updated: 2019/03/22 09:13:44 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,8 @@ static char		**ft_split_malloc(char const *s, char c)
 			i++;
 		while (s[i + len] != c && s[i + len])
 			len++;
-		tab[j] = ft_strsub(s, i, len);
+		if (!(tab[j] = ft_strsub(s, i, len)))
+			return (0);
 		i = i + len;
 		j++;
 	}

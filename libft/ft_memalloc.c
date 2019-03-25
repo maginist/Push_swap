@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/09 14:19:14 by maginist          #+#    #+#             */
-/*   Updated: 2018/11/09 15:52:20 by maginist         ###   ########.fr       */
+/*   Updated: 2019/03/22 09:10:04 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	*ft_memalloc(size_t size)
 	str = NULL;
 	if (!(str = (char*)malloc(sizeof(char*) * size)))
 		return (NULL);
-	ft_memset(str, 0, size);
+	if (!(ft_memset(str, 0, size)))
+		return (NULL);
 	return (str);
 }

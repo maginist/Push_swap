@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2018/11/15 15:52:13 by maginist          #+#    #+#             */
-/*   Updated: 2019/03/05 14:25:04 by maginist         ###   ########.fr       */
+/*   Updated: 2019/03/22 09:39:40 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,8 @@ int		fd_n_finish(char **str, char **line)
 		*tmp = '\0';
 	if ((int)ft_strlen(*str) < ret)
 	{
-		*line = ft_strdup(*str);
+		if (!(*line = ft_strdup(*str)))
+			return (0);
 		if ((int)ft_strlen(*line) < ret - 1)
 			*str = ft_strcpy(*str, *str + (int)ft_strlen(*line) + 1);
 		else
@@ -30,6 +31,21 @@ int		fd_n_finish(char **str, char **line)
 		return (1);
 	}
 	return (0);
+}
+
+int		kill_norm(char *buf, char **line, char **str, int ret)
+{
+	if (!(*line = ft_strdup(*str)))
+		exit(0);
+	free(*str);
+	if ((int)ft_strlen(buf) < ret - 1)
+	{
+		if (!(*str = ft_strdup(buf + (int)ft_strlen(buf) + 1)))
+			exit(0);
+	}
+	else
+		*str = NULL;
+	return (1);
 }
 
 int		start_fd(int fd, char **str, char **line)
@@ -43,19 +59,16 @@ int		start_fd(int fd, char **str, char **line)
 		buf[ret] = '\0';
 		if ((tmp = ft_strchr(buf, '\n')))
 			*tmp = '\0';
-		tmp = ft_strjoin(*str, buf);
+		if (!(tmp = ft_strjoin(*str, buf)))
+			exit(0);
 		ft_strdel(str);
-		*str = ft_strdup(tmp);
+		if (!(*str = ft_strdup(tmp)))
+			exit(0);
 		free(tmp);
 		if ((int)ft_strlen(buf) < ret)
 		{
-			*line = ft_strdup(*str);
-			free(*str);
-			if ((int)ft_strlen(buf) < ret - 1)
-				*str = ft_strdup(buf + (int)ft_strlen(buf) + 1);
-			else
-				*str = NULL;
-			return (1);
+			if (kill_norm(buf, line, str, ret))
+				return (1);
 		}
 	}
 	return (ret);

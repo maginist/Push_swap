@@ -6,7 +6,7 @@
 /*   By: maginist <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2019/01/30 10:33:08 by maginist          #+#    #+#             */
-/*   Updated: 2019/03/05 14:13:29 by maginist         ###   ########.fr       */
+/*   Updated: 2019/03/11 14:04:30 by maginist         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,7 +40,7 @@ int		nbdouble(int ac, char **av, t_stock **pile_a)
 	int j;
 
 	i = 1;
-	if (ac > 2 && av[1][0] == '-' && av[1][1] == 'v')
+	if (ac > 2 && av[1][0] == '-' && av[1][1] == 'v' && !(av[1][2]))
 		i = 2;
 	while (i < ac)
 	{
@@ -63,7 +63,7 @@ int		arg_stock(int ac, char **av, t_stock **pile_a)
 	int	j;
 
 	i = 1;
-	if (ac > 2 && av[1][0] == '-' && av[1][1] == 'v')
+	if (ac > 2 && av[1][0] == '-' && av[1][1] == 'v' && !(av[1][2]))
 		i = 2;
 	if (ac == 1)
 		return (2);

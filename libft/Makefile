@@ -6,13 +6,15 @@
 #    By: floblanc <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2018/11/12 10:09:35 by floblanc          #+#    #+#              #
-#    Updated: 2019/03/05 15:48:08 by maginist         ###   ########.fr        #
+#    Updated: 2019/03/11 11:21:04 by maginist         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = libft.a
 
 CFLAGS = -Wall -Werror -Wextra
+
+CC = gcc
 
 SRCS = ft_memset.c\
 	   ft_bzero.c\
@@ -89,13 +91,14 @@ INC = libft.h
 all : $(NAME)
 
 $(NAME) : $(INC) $(OBJS) $(SRCS)
-	$(CC) $(CFLAGS) -c $(SRCS)
-	ar rcs $(NAME) $(OBJS)
+	@$(CC) $(CFLAGS) -c $(SRCS)
+	@ar rcs $(NAME) $(OBJS)
+	@echo "\033[33;32m===  <LIBFT DONE> ===\033[00m"
 
 clean :
-	rm -f $(OBJS)
+	@rm -f $(OBJS)
 
 fclean : clean
-	rm -f $(NAME)
+	@rm -f $(NAME)
 
 re : fclean all
